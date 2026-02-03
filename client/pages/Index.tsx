@@ -28,10 +28,16 @@ export default function Index() {
             </span>
           </div>
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition">
+            <a
+              href="#features"
+              className="text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition"
+            >
               Features
             </a>
-            <a href="#how-it-works" className="text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition">
+            <a
+              href="#how-it-works"
+              className="text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition"
+            >
               How It Works
             </a>
             <button className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium hover:shadow-lg hover:shadow-purple-500/30 transition">
@@ -61,12 +67,15 @@ export default function Index() {
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
             Master Your Learning,
             <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              {" "}Not Your Distractions
+              {" "}
+              Not Your Distractions
             </span>
           </h1>
 
           <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Taskora silently monitors your learning behavior, intelligently schedules your study sessions, and coaches you toward better focus—all without forced restrictions.
+            Taskora silently monitors your learning behavior, intelligently
+            schedules your study sessions, and coaches you toward better
+            focus—all without forced restrictions.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -94,7 +103,10 @@ export default function Index() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="relative px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+      <section
+        id="features"
+        className="relative px-4 sm:px-6 lg:px-8 py-20 md:py-32"
+      >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
@@ -115,7 +127,8 @@ export default function Index() {
                 Background App Monitoring
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                Silently tracks learning and distraction apps with permission-based transparency. Understand where your focus goes.
+                Silently tracks learning and distraction apps with
+                permission-based transparency. Understand where your focus goes.
               </p>
             </div>
 
@@ -128,7 +141,8 @@ export default function Index() {
                 Smart Learning Calendar
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                AI-powered scheduling that automatically plans sessions, reschedules missed tasks, and adapts to your focus patterns.
+                AI-powered scheduling that automatically plans sessions,
+                reschedules missed tasks, and adapts to your focus patterns.
               </p>
             </div>
 
@@ -141,7 +155,8 @@ export default function Index() {
                 AI Learning Chatbot
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                Conversational assistant that understands your learning journey and provides personalized guidance and summaries.
+                Conversational assistant that understands your learning journey
+                and provides personalized guidance and summaries.
               </p>
             </div>
 
@@ -154,7 +169,8 @@ export default function Index() {
                 Focus & Learning Scores
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                Clear metrics based on uninterrupted learning time and consistency. No gamification overload, just meaningful data.
+                Clear metrics based on uninterrupted learning time and
+                consistency. No gamification overload, just meaningful data.
               </p>
             </div>
 
@@ -167,7 +183,8 @@ export default function Index() {
                 Smart App Nudges
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                Gentle, helpful notifications that keep you on track without restrictive controls. You always stay in command.
+                Gentle, helpful notifications that keep you on track without
+                restrictive controls. You always stay in command.
               </p>
             </div>
 
@@ -180,7 +197,8 @@ export default function Index() {
                 Learning Recall Assistant
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                AI generates summaries, creates revision questions, and schedules spaced repetition for better retention.
+                AI generates summaries, creates revision questions, and
+                schedules spaced repetition for better retention.
               </p>
             </div>
           </div>
@@ -188,7 +206,10 @@ export default function Index() {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="relative px-4 sm:px-6 lg:px-8 py-20 md:py-32 bg-gradient-to-b from-slate-50 to-white dark:from-slate-800 dark:to-slate-950">
+      <section
+        id="how-it-works"
+        className="relative px-4 sm:px-6 lg:px-8 py-20 md:py-32 bg-gradient-to-b from-slate-50 to-white dark:from-slate-800 dark:to-slate-950"
+      >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
@@ -322,7 +343,9 @@ export default function Index() {
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
                   {item.title}
                 </h3>
-                <p className="text-slate-600 dark:text-slate-400">{item.desc}</p>
+                <p className="text-slate-600 dark:text-slate-400">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -336,7 +359,8 @@ export default function Index() {
             Ready to Transform Your Learning?
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-            Join thousands of learners who've improved their focus and consistency with Taskora's intelligent guidance.
+            Join thousands of learners who've improved their focus and
+            consistency with Taskora's intelligent guidance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="px-8 py-4 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:shadow-2xl hover:shadow-purple-500/40 transition transform hover:scale-105">
@@ -373,17 +397,26 @@ export default function Index() {
               </h4>
               <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
                 <li>
-                  <a href="#" className="hover:text-slate-900 dark:hover:text-white transition">
+                  <a
+                    href="#"
+                    className="hover:text-slate-900 dark:hover:text-white transition"
+                  >
                     Features
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-slate-900 dark:hover:text-white transition">
+                  <a
+                    href="#"
+                    className="hover:text-slate-900 dark:hover:text-white transition"
+                  >
                     Pricing
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-slate-900 dark:hover:text-white transition">
+                  <a
+                    href="#"
+                    className="hover:text-slate-900 dark:hover:text-white transition"
+                  >
                     How It Works
                   </a>
                 </li>
@@ -395,17 +428,26 @@ export default function Index() {
               </h4>
               <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
                 <li>
-                  <a href="#" className="hover:text-slate-900 dark:hover:text-white transition">
+                  <a
+                    href="#"
+                    className="hover:text-slate-900 dark:hover:text-white transition"
+                  >
                     About
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-slate-900 dark:hover:text-white transition">
+                  <a
+                    href="#"
+                    className="hover:text-slate-900 dark:hover:text-white transition"
+                  >
                     Blog
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-slate-900 dark:hover:text-white transition">
+                  <a
+                    href="#"
+                    className="hover:text-slate-900 dark:hover:text-white transition"
+                  >
                     Privacy
                   </a>
                 </li>
@@ -417,17 +459,26 @@ export default function Index() {
               </h4>
               <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
                 <li>
-                  <a href="#" className="hover:text-slate-900 dark:hover:text-white transition">
+                  <a
+                    href="#"
+                    className="hover:text-slate-900 dark:hover:text-white transition"
+                  >
                     Twitter
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-slate-900 dark:hover:text-white transition">
+                  <a
+                    href="#"
+                    className="hover:text-slate-900 dark:hover:text-white transition"
+                  >
                     Discord
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-slate-900 dark:hover:text-white transition">
+                  <a
+                    href="#"
+                    className="hover:text-slate-900 dark:hover:text-white transition"
+                  >
                     Email
                   </a>
                 </li>
@@ -440,13 +491,22 @@ export default function Index() {
               © 2024 Taskora. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition">
+              <a
+                href="#"
+                className="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+              >
                 Terms
               </a>
-              <a href="#" className="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition">
+              <a
+                href="#"
+                className="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+              >
                 Privacy
               </a>
-              <a href="#" className="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition">
+              <a
+                href="#"
+                className="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+              >
                 Cookies
               </a>
             </div>

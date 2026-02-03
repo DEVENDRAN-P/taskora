@@ -57,7 +57,8 @@ export default function PlaceholderPage({
               💡 Help build this page
             </p>
             <p className="text-blue-800 dark:text-blue-400 text-sm">
-              This page is ready to be developed! Tell us what you'd like to see here, and we'll build it for you.
+              This page is ready to be developed! Tell us what you'd like to see
+              here, and we'll build it for you.
             </p>
           </div>
 
