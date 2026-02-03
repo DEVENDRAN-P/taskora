@@ -1,31 +1,23 @@
-import { Link } from "react-router-dom";
-import {
-  MessageCircle,
-  BarChart3,
-  TrendingUp,
-  Send,
-  Settings,
-  User,
-  Menu,
-  X,
-  Activity,
-} from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { MessageCircle, Send, Settings, User, Menu, X, Lightbulb } from "lucide-react";
 
 interface Message {
   id: string;
   type: "user" | "assistant";
   content: string;
+  timestamp: Date;
 }
 
-export default function Chat() {
+export default function LearningChatbot() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
       type: "assistant",
       content:
-        "Hi! I'm your AI Learning Assistant. I can help you analyze your study habits, provide learning recommendations, and answer questions about your progress. What would you like to know?",
+        "Hi! I'm your AI Learning Companion 🎓. I'm here to help you optimize your learning journey. I can help you with study plans, answer questions, and provide personalized learning recommendations based on your patterns. What would you like to work on today?",
+      timestamp: new Date(),
     },
   ]);
   const [input, setInput] = useState("");
@@ -37,13 +29,15 @@ export default function Chat() {
       id: Date.now().toString(),
       type: "user",
       content: input,
+      timestamp: new Date(),
     };
 
     const assistantMessage: Message = {
       id: (Date.now() + 1).toString(),
       type: "assistant",
       content:
-        "That's a great question! Based on your recent learning data, I recommend focusing on consistent 90-minute study blocks with 15-minute breaks. This aligns with your peak focus time of 2-4 PM.",
+        "That's a great question! Based on your learning patterns, I recommend: 1) Start with foundational concepts, 2) Practice with real examples, 3) Review regularly using spaced repetition. Your peak focus time is 2-4 PM, so I suggest scheduling important topics then.",
+      timestamp: new Date(),
     };
 
     setMessages([...messages, userMessage, assistantMessage]);
@@ -60,19 +54,13 @@ export default function Chat() {
               onClick={() => setSidebarOpen(!sidebarOpen)}
               className="p-2 rounded-lg bg-white/10 text-white lg:hidden"
             >
-              {sidebarOpen ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
+              {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-black to-gray-900 flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-sm">T</span>
+                <MessageCircle className="w-5 h-5 text-white" />
               </div>
-              <span className="font-bold text-white">
-                AI Assistant
-              </span>
+              <span className="font-bold text-white">AI Learning Chatbot</span>
             </div>
           </div>
           <div className="flex items-center gap-4">
@@ -95,28 +83,14 @@ export default function Chat() {
                 to="/dashboard"
                 className="w-full px-4 py-3 rounded-lg text-white/70 font-medium text-left hover:bg-white/10 transition flex items-center gap-3"
               >
-                <BarChart3 className="w-5 h-5" />
+                <Lightbulb className="w-5 h-5" />
                 Dashboard
-              </Link>
-              <button className="w-full px-4 py-3 rounded-lg bg-black/20 text-white font-medium text-left hover:bg-black/30 transition flex items-center gap-3">
-                <MessageCircle className="w-5 h-5" />
-                Chat
-              </button>
-              <Link
-                to="/analytics"
-                className="w-full px-4 py-3 rounded-lg text-white/70 font-medium text-left hover:bg-white/10 transition flex items-center gap-3"
-              >
-                <TrendingUp className="w-5 h-5" />
-                Analytics
               </Link>
             </nav>
             <div className="border-t border-white/20 pt-6">
-              <Link
-                to="/"
-                className="text-sm text-white/60 hover:text-white transition"
-              >
-                ← Back to Home
-              </Link>
+              <button className="w-full px-4 py-2 rounded-lg bg-black text-white font-medium hover:bg-gray-900 transition">
+                + New Conversation
+              </button>
             </div>
           </aside>
         )}
@@ -125,11 +99,11 @@ export default function Chat() {
         <main className="flex-1 flex flex-col overflow-hidden">
           {/* Messages */}
           <div className="flex-1 overflow-y-auto p-6 lg:p-8 space-y-6">
-            <div className="max-w-2xl mx-auto w-full space-y-6">
+            <div className="max-w-3xl mx-auto w-full space-y-6">
               {messages.map((msg) => (
                 <div key={msg.id} className={`flex ${msg.type === "user" ? "justify-end" : "justify-start"}`}>
                   <div
-                    className={`max-w-xl rounded-lg p-4 ${
+                    className={`max-w-2xl rounded-lg p-4 ${
                       msg.type === "user"
                         ? "bg-black text-white"
                         : "bg-white/10 backdrop-blur border border-white/20 text-white"
@@ -144,15 +118,15 @@ export default function Chat() {
 
           {/* Input Area */}
           <div className="border-t border-white/20 bg-transparent p-4 lg:p-6">
-            <div className="max-w-2xl mx-auto w-full">
+            <div className="max-w-3xl mx-auto w-full">
               <div className="flex gap-3">
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={(e) => e.key === "Enter" && handleSend()}
-                  placeholder="Ask your AI assistant..."
-                  className="flex-1 px-4 py-3 rounded-lg border border-white/20 bg-white/10 backdrop-blur text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-black"
+                  placeholder="Ask me anything about your learning..."
+                  className="flex-1 px-4 py-3 rounded-lg border border-white/20 bg-white/10 backdrop-blur text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-gray-700"
                 />
                 <button
                   onClick={handleSend}
@@ -162,7 +136,7 @@ export default function Chat() {
                 </button>
               </div>
               <p className="text-xs text-white/50 mt-2">
-                Chat with your AI learning companion to get personalized recommendations and insights
+                💡 Tip: Ask me about study strategies, focus techniques, or your learning progress
               </p>
             </div>
           </div>

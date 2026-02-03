@@ -13,6 +13,13 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Poppins", "sans-serif"],
+        display: ["Geist", "sans-serif"],
+      },
+      backgroundImage: {
+        gradient: "linear-gradient(135deg, #0F172A 0%, #1E293B 100%)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

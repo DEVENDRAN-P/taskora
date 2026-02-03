@@ -1,62 +1,65 @@
 /** @import must precede all other statements */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Geist:wght@400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+
   /**
    * Tailwind CSS theme
    * tailwind.config.ts expects the following color variables to be expressed as HSL values.
    * A different format will require also updating the theme in tailwind.config.ts.
   */
   :root {
+    --gradient-start: #0F172A;
+    --gradient-end: #1E293B;
     --background: 0 0% 100%;
-    --foreground: 217 33% 17%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 217 33% 17%;
+    --card: 268 51% 26%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 217 33% 17%;
+    --popover: 268 51% 26%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 217 100% 50%;
+    --primary: 346 100% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 188 100% 50%;
-    --secondary-foreground: 217 33% 17%;
+    --secondary: 268 51% 40%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 268 20% 50%;
+    --muted-foreground: 0 0% 85%;
 
-    --accent: 217 100% 50%;
-    --accent-foreground: 217 33% 17%;
+    --accent: 346 100% 60%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 217 100% 50%;
+    --border: 268 30% 35%;
+    --input: 268 30% 35%;
+    --ring: 346 100% 55%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 268 51% 20%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-foreground: 0 0% 100%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary: 346 100% 55%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-primary-foreground: 0 0% 100%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent: 268 51% 35%;
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-accent-foreground: 0 0% 100%;
 
-    --sidebar-border: 220 13% 91%;
+    --sidebar-border: 268 30% 30%;
 
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 346 100% 55%;
   }
 
   .dark {
@@ -104,8 +107,10 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    background: linear-gradient(135deg, #3E2F5B 0%, #E94560 100%);
+    @apply text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    min-height: 100vh;
   }
 
   :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
@@ -119,7 +124,33 @@
     white-space: pre;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-weight: 700;
+    font-family: "Geist", sans-serif;
+    color: #ffffff;
+  }
+
+  p, span, li, label, td, th {
+    color: #f0f0f0;
+  }
+
+  a {
+    color: #000000;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+
+  button {
+    font-weight: 600;
   }
 }

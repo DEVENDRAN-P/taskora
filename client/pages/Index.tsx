@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   BarChart3,
   MessageCircle,
@@ -14,44 +14,51 @@ import { useState } from "react";
 
 export default function Index() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950">
+    <div className="min-h-screen">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-lg">
+      <nav className="sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-transparent backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center shadow-lg">
+            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-black to-gray-900 flex items-center justify-center shadow-lg">
               <span className="text-white font-bold text-lg">T</span>
             </div>
-            <span className="text-lg font-bold text-slate-900 dark:text-white">
+            <span className="text-lg font-bold text-white">
               Taskora
             </span>
           </div>
           <div className="hidden md:flex items-center gap-1">
             <a
               href="#features"
-              className="px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+              className="px-3 py-2 text-sm font-medium text-white hover:text-gray-300 transition"
             >
               Features
             </a>
             <a
               href="#about"
-              className="px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+              className="px-3 py-2 text-sm font-medium text-white hover:text-gray-300 transition"
             >
               About
             </a>
-            <div className="w-px h-4 bg-slate-200 dark:bg-slate-700 mx-2"></div>
-            <button className="px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition">
+            <div className="w-px h-4 bg-white/20 mx-2"></div>
+            <button 
+              onClick={() => navigate("/login")}
+              className="px-4 py-2 text-sm font-medium text-white hover:text-gray-300 transition"
+            >
               Sign In
             </button>
-            <button className="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition">
+            <button 
+              onClick={() => navigate("/login")}
+              className="px-4 py-2 rounded-lg bg-black text-white text-sm font-medium hover:bg-gray-900 transition"
+            >
               Get Started
             </button>
           </div>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white"
+            className="md:hidden p-2 rounded-lg bg-white/10 text-white"
           >
             {mobileMenuOpen ? (
               <X className="w-5 h-5" />
@@ -61,20 +68,23 @@ export default function Index() {
           </button>
         </div>
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-slate-200 dark:border-slate-800 p-4 space-y-2">
+          <div className="md:hidden border-t border-white/20 p-4 space-y-2">
             <a
               href="#features"
-              className="block px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+              className="block px-4 py-2 text-sm font-medium text-white hover:text-gray-300"
             >
               Features
             </a>
             <a
               href="#about"
-              className="block px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+              className="block px-4 py-2 text-sm font-medium text-white hover:text-gray-300"
             >
               About
             </a>
-            <button className="w-full px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition">
+            <button 
+              onClick={() => navigate("/login")}
+              className="w-full px-4 py-2 rounded-lg bg-black text-white text-sm font-medium hover:bg-gray-900 transition"
+            >
               Get Started
             </button>
           </div>
@@ -90,58 +100,61 @@ export default function Index() {
         </div>
 
         <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-block mb-6 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 border border-blue-300 dark:border-blue-700">
-            <span className="text-sm font-medium text-blue-700 dark:text-blue-300">
+          <div className="inline-block mb-6 px-3 py-1 rounded-full bg-white/10 border border-white/30">
+            <span className="text-sm font-medium text-white">
               Learn Smarter, Not Harder
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 dark:text-white mb-6 leading-tight tracking-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
             Your Intelligent Learning<br className="hidden md:block" />
-            <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-black to-gray-900 bg-clip-text text-transparent">
               Companion
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto leading-relaxed">
             Taskora combines learning analytics, AI-powered guidance, and smart scheduling to help you achieve consistent focus and better results.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Link
               to="/dashboard"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition shadow-lg hover:shadow-xl"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-black text-white font-semibold hover:bg-gray-900 transition shadow-lg hover:shadow-xl"
             >
               Try Dashboard
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
-            <button className="inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white font-semibold hover:bg-slate-50 dark:hover:bg-slate-900 transition">
+            <button 
+              onClick={() => navigate("/dashboard")}
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-white/30 text-white font-semibold hover:bg-white/10 transition"
+            >
               View Demo
             </button>
           </div>
 
-          <div className="grid grid-cols-3 gap-6 md:gap-8 pt-8 border-t border-slate-200 dark:border-slate-800">
+          <div className="grid grid-cols-3 gap-6 md:gap-8 pt-8 border-t border-white/20">
             <div>
-              <div className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">
-                10K+
+              <div className="text-2xl md:text-3xl font-bold text-white">
+                0
               </div>
-              <div className="text-sm text-slate-600 dark:text-slate-400">
+              <div className="text-sm text-white/70">
                 Active Learners
               </div>
             </div>
             <div>
-              <div className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">
-                42%
+              <div className="text-2xl md:text-3xl font-bold text-white">
+                0%
               </div>
-              <div className="text-sm text-slate-600 dark:text-slate-400">
+              <div className="text-sm text-white/70">
                 Focus Improvement
               </div>
             </div>
             <div>
-              <div className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">
-                99%
+              <div className="text-2xl md:text-3xl font-bold text-white">
+                0%
               </div>
-              <div className="text-sm text-slate-600 dark:text-slate-400">
+              <div className="text-sm text-white/70">
                 Uptime SLA
               </div>
             </div>
@@ -150,13 +163,13 @@ export default function Index() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="relative px-4 sm:px-6 lg:px-8 py-24 md:py-32 bg-slate-50 dark:bg-slate-900">
+      <section id="features" className="relative px-4 sm:px-6 lg:px-8 py-24 md:py-32">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Everything You Need
             </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+            <p className="text-xl text-white/80 max-w-2xl mx-auto">
               Powerful features designed for consistent learning and focus
             </p>
           </div>
@@ -196,15 +209,15 @@ export default function Index() {
             ].map((feature, i) => (
               <div
                 key={i}
-                className="p-6 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition"
+                className="p-6 rounded-lg bg-white/10 backdrop-blur border border-white/20 hover:border-gray-300 hover:shadow-lg transition"
               >
-                <div className="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                <div className="w-12 h-12 rounded-lg bg-black/20 flex items-center justify-center mb-4">
+                  <feature.icon className="w-6 h-6 text-gray-300" />
                 </div>
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-slate-600 dark:text-slate-400">
+                <p className="text-white/70">
                   {feature.description}
                 </p>
               </div>
@@ -218,10 +231,10 @@ export default function Index() {
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 How it Works
               </h2>
-              <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
+              <p className="text-lg text-white/80 mb-6">
                 Taskora uses advanced analytics and machine learning to understand your learning patterns and optimize your study routine.
               </p>
               <ul className="space-y-3">
@@ -232,20 +245,20 @@ export default function Index() {
                   "Track progress with real-time metrics",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0" />
-                    <span className="text-slate-700 dark:text-slate-300">
+                    <CheckCircle2 className="w-5 h-5 text-gray-300 flex-shrink-0" />
+                    <span className="text-white/80">
                       {item}
                     </span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl border border-blue-200 dark:border-blue-800 p-8 min-h-96 flex items-center justify-center">
+            <div className="bg-white/5 rounded-2xl border border-white/20 p-8 min-h-96 flex items-center justify-center">
               <div className="text-center">
-                <div className="text-5xl font-bold text-blue-600/20 dark:text-blue-400/20">
+                <div className="text-5xl font-bold text-white/30">
                   📊
                 </div>
-                <p className="text-slate-600 dark:text-slate-400 mt-4">
+                <p className="text-white/60 mt-4">
                   Advanced Analytics Dashboard Coming Soon
                 </p>
               </div>
@@ -255,23 +268,26 @@ export default function Index() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-24 md:py-32 bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900">
+      <section className="relative px-4 sm:px-6 lg:px-8 py-24 md:py-32">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
             Join thousands of learners improving their focus and consistency with Taskora.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/dashboard"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition shadow-lg hover:shadow-xl"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-black text-white font-semibold hover:bg-gray-900 transition shadow-lg hover:shadow-xl"
             >
               Start Dashboard
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
-            <button className="inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white font-semibold hover:bg-slate-50 dark:hover:bg-slate-900 transition">
+            <button 
+              onClick={() => navigate("/dashboard")}
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-white/30 text-white font-semibold hover:bg-white/10 transition"
+            >
               Schedule a Demo
             </button>
           </div>
@@ -279,31 +295,31 @@ export default function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 sm:px-6 lg:px-8 py-12">
+      <footer className="border-t border-white/20 px-4 sm:px-6 lg:px-8 py-12 bg-black/20">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center shadow-lg">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-black to-gray-900 flex items-center justify-center shadow-lg">
                   <span className="text-white font-bold">T</span>
                 </div>
-                <span className="font-bold text-slate-900 dark:text-white">
+                <span className="font-bold text-white">
                   Taskora
                 </span>
               </div>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
+              <p className="text-sm text-white/60">
                 Intelligent learning companion for modern students.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold text-slate-900 dark:text-white mb-4 text-sm">
+              <h4 className="font-semibold text-white mb-4 text-sm">
                 Product
               </h4>
               <ul className="space-y-2 text-sm">
                 <li>
                   <a
                     href="#features"
-                    className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+                    className="text-white/60 hover:text-white transition"
                   >
                     Features
                   </a>
@@ -311,7 +327,7 @@ export default function Index() {
                 <li>
                   <a
                     href="#"
-                    className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+                    className="text-white/60 hover:text-white transition"
                   >
                     Pricing
                   </a>
@@ -319,14 +335,14 @@ export default function Index() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-slate-900 dark:text-white mb-4 text-sm">
+              <h4 className="font-semibold text-white mb-4 text-sm">
                 Company
               </h4>
               <ul className="space-y-2 text-sm">
                 <li>
                   <a
                     href="#"
-                    className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+                    className="text-white/60 hover:text-white transition"
                   >
                     About
                   </a>
@@ -334,7 +350,7 @@ export default function Index() {
                 <li>
                   <a
                     href="#"
-                    className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+                    className="text-white/60 hover:text-white transition"
                   >
                     Blog
                   </a>
@@ -342,14 +358,14 @@ export default function Index() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-slate-900 dark:text-white mb-4 text-sm">
+              <h4 className="font-semibold text-white mb-4 text-sm">
                 Legal
               </h4>
               <ul className="space-y-2 text-sm">
                 <li>
                   <a
                     href="#"
-                    className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+                    className="text-white/60 hover:text-white transition"
                   >
                     Privacy
                   </a>
@@ -357,7 +373,7 @@ export default function Index() {
                 <li>
                   <a
                     href="#"
-                    className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+                    className="text-white/60 hover:text-white transition"
                   >
                     Terms
                   </a>
@@ -365,26 +381,26 @@ export default function Index() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-slate-600 dark:text-slate-400">
+          <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-sm text-white/60">
               © 2026 Taskora. All rights reserved.
             </p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <a
                 href="#"
-                className="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+                className="text-sm text-white/60 hover:text-white transition"
               >
                 Twitter
               </a>
               <a
                 href="#"
-                className="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+                className="text-sm text-white/60 hover:text-white transition"
               >
                 Discord
               </a>
               <a
                 href="#"
-                className="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+                className="text-sm text-white/60 hover:text-white transition"
               >
                 GitHub
               </a>

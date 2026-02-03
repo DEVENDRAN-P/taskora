@@ -17,14 +17,14 @@ export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+    <div className="min-h-screen">
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+      <header className="sticky top-0 z-40 border-b border-white/20 bg-transparent">
         <div className="px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white lg:hidden"
+              className="p-2 rounded-lg bg-white/10 text-white lg:hidden"
             >
               {sidebarOpen ? (
                 <X className="w-5 h-5" />
@@ -33,19 +33,19 @@ export default function Dashboard() {
               )}
             </button>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center shadow-lg">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-black to-gray-900 flex items-center justify-center shadow-lg">
                 <span className="text-white font-bold text-sm">T</span>
               </div>
-              <span className="font-bold text-slate-900 dark:text-white">
+              <span className="font-bold text-white">
                 Dashboard
               </span>
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <button className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+            <button className="p-2 rounded-lg bg-white/10 text-white hover:bg-white/20 transition">
               <Settings className="w-5 h-5" />
             </button>
-            <button className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+            <button className="p-2 rounded-lg bg-white/10 text-white hover:bg-white/20 transition">
               <User className="w-5 h-5" />
             </button>
           </div>
@@ -55,31 +55,31 @@ export default function Dashboard() {
       <div className="flex">
         {/* Sidebar */}
         {sidebarOpen && (
-          <aside className="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 space-y-6">
+          <aside className="w-64 border-r border-white/20 bg-white/5 backdrop-blur p-6 space-y-6">
             <nav className="space-y-2">
-              <button className="w-full px-4 py-3 rounded-lg bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 font-medium text-left hover:bg-blue-100 dark:hover:bg-blue-900/30 transition flex items-center gap-3">
+              <button className="w-full px-4 py-3 rounded-lg bg-black/20 text-white font-medium text-left hover:bg-black/30 transition flex items-center gap-3">
                 <BarChart3 className="w-5 h-5" />
                 Dashboard
               </button>
               <Link
                 to="/chat"
-                className="w-full px-4 py-3 rounded-lg text-slate-700 dark:text-slate-300 font-medium text-left hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-3"
+                className="w-full px-4 py-3 rounded-lg text-white/70 font-medium text-left hover:bg-white/10 transition flex items-center gap-3"
               >
                 <Activity className="w-5 h-5" />
                 Chat
               </Link>
               <Link
                 to="/analytics"
-                className="w-full px-4 py-3 rounded-lg text-slate-700 dark:text-slate-300 font-medium text-left hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-3"
+                className="w-full px-4 py-3 rounded-lg text-white/70 font-medium text-left hover:bg-white/10 transition flex items-center gap-3"
               >
                 <TrendingUp className="w-5 h-5" />
                 Analytics
               </Link>
             </nav>
-            <div className="border-t border-slate-200 dark:border-slate-800 pt-6">
+            <div className="border-t border-white/20 pt-6">
               <Link
                 to="/"
-                className="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+                className="text-sm text-white/60 hover:text-white transition"
               >
                 ← Back to Home
               </Link>
@@ -92,10 +92,10 @@ export default function Dashboard() {
           <div className="max-w-7xl mx-auto space-y-8">
             {/* Welcome Section */}
             <div>
-              <h1 className="text-4xl font-bold text-slate-900 dark:text-white mb-2">
+              <h1 className="text-4xl font-bold text-white mb-2">
                 Welcome back, Learner
               </h1>
-              <p className="text-slate-600 dark:text-slate-400">
+              <p className="text-white/70">
                 Here's your learning progress for this week
               </p>
             </div>
@@ -105,51 +105,51 @@ export default function Dashboard() {
               {[
                 {
                   label: "Focus Time",
-                  value: "24h 32m",
-                  change: "+12% from last week",
+                  value: "0h 0m",
+                  change: "0% from last week",
                   icon: Clock,
-                  bgColor: "bg-blue-100 dark:bg-blue-900/30",
-                  iconColor: "text-blue-600 dark:text-blue-400",
+                  bgColor: "bg-black/20",
+                  iconColor: "text-gray-300",
                 },
                 {
                   label: "Learning Streak",
-                  value: "12 Days",
-                  change: "Keep it up!",
+                  value: "0 Days",
+                  change: "Start your streak!",
                   icon: Target,
-                  bgColor: "bg-green-100 dark:bg-green-900/30",
-                  iconColor: "text-green-600 dark:text-green-400",
+                  bgColor: "bg-black/20",
+                  iconColor: "text-gray-300",
                 },
                 {
                   label: "Avg. Focus",
-                  value: "82%",
-                  change: "+5% improvement",
+                  value: "0%",
+                  change: "0% improvement",
                   icon: Activity,
-                  bgColor: "bg-purple-100 dark:bg-purple-900/30",
-                  iconColor: "text-purple-600 dark:text-purple-400",
+                  bgColor: "bg-black/20",
+                  iconColor: "text-gray-300",
                 },
                 {
                   label: "Sessions",
-                  value: "18",
+                  value: "0",
                   change: "This week",
                   icon: BookOpen,
-                  bgColor: "bg-cyan-100 dark:bg-cyan-900/30",
-                  iconColor: "text-cyan-600 dark:text-cyan-400",
+                  bgColor: "bg-black/20",
+                  iconColor: "text-gray-300",
                 },
               ].map((metric, i) => (
                 <div
                   key={i}
-                  className="p-6 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
+                  className="p-6 rounded-lg bg-white/10 backdrop-blur border border-white/20 hover:border-gray-300/50 transition"
                 >
                   <div className={`w-12 h-12 rounded-lg ${metric.bgColor} flex items-center justify-center mb-4`}>
                     <metric.icon className={`w-6 h-6 ${metric.iconColor}`} />
                   </div>
-                  <div className="text-sm text-slate-600 dark:text-slate-400 mb-1">
+                  <div className="text-sm text-white/70 mb-1">
                     {metric.label}
                   </div>
-                  <div className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                  <div className="text-2xl font-bold text-white mb-2">
                     {metric.value}
                   </div>
-                  <div className="text-xs text-green-600 dark:text-green-400">
+                  <div className="text-xs text-gray-300">
                     {metric.change}
                   </div>
                 </div>
@@ -159,37 +159,37 @@ export default function Dashboard() {
             {/* Charts Section */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Focus Time Chart */}
-              <div className="lg:col-span-2 p-6 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-6">
+              <div className="lg:col-span-2 p-6 rounded-lg bg-white/10 backdrop-blur border border-white/20">
+                <h2 className="text-lg font-bold text-white mb-6">
                   Focus Time This Week
                 </h2>
                 <div className="space-y-4">
-                  {[
-                    { day: "Monday", hours: 4.5, target: 5 },
-                    { day: "Tuesday", hours: 5, target: 5 },
-                    { day: "Wednesday", hours: 4, target: 5 },
-                    { day: "Thursday", hours: 5.5, target: 5 },
-                    { day: "Friday", hours: 3.5, target: 5 },
-                    { day: "Saturday", hours: 1.5, target: 5 },
-                    { day: "Sunday", hours: 0.5, target: 5 },
+                  {[ 
+                    { day: "Monday", hours: 0, target: 5 },
+                    { day: "Tuesday", hours: 0, target: 5 },
+                    { day: "Wednesday", hours: 0, target: 5 },
+                    { day: "Thursday", hours: 0, target: 5 },
+                    { day: "Friday", hours: 0, target: 5 },
+                    { day: "Saturday", hours: 0, target: 5 },
+                    { day: "Sunday", hours: 0, target: 5 },
                   ].map((item, i) => (
                     <div key={i} className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300 w-20">
+                      <span className="text-sm font-medium text-white/80 w-20">
                         {item.day}
                       </span>
-                      <div className="flex-1 mx-4 h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                      <div className="flex-1 mx-4 h-2 bg-white/10 rounded-full overflow-hidden">
                         <div
                           className={`h-full ${
                             item.hours >= item.target
-                              ? "bg-green-500"
-                              : "bg-blue-500"
+                              ? "bg-black"
+                              : "bg-black/70"
                           }`}
                           style={{
                             width: `${(item.hours / item.target) * 100}%`,
                           }}
                         ></div>
                       </div>
-                      <span className="text-sm text-slate-600 dark:text-slate-400 w-12 text-right">
+                      <span className="text-sm text-white/70 w-12 text-right">
                         {item.hours}h
                       </span>
                     </div>
@@ -198,22 +198,22 @@ export default function Dashboard() {
               </div>
 
               {/* Top Learning Apps */}
-              <div className="p-6 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-6">
+              <div className="p-6 rounded-lg bg-white/10 backdrop-blur border border-white/20">
+                <h2 className="text-lg font-bold text-white mb-6">
                   Top Apps
                 </h2>
                 <div className="space-y-4">
                   {[
-                    { app: "VS Code", time: "8h 23m" },
-                    { app: "Notion", time: "4h 12m" },
-                    { app: "YouTube", time: "3h 45m" },
-                    { app: "Discord", time: "2h 15m" },
+                    { app: "VS Code", time: "0h 0m" },
+                    { app: "Notion", time: "0h 0m" },
+                    { app: "YouTube", time: "0h 0m" },
+                    { app: "Discord", time: "0h 0m" },
                   ].map((item, i) => (
                     <div key={i} className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                      <span className="text-sm font-medium text-white/80">
                         {item.app}
                       </span>
-                      <span className="text-sm text-slate-600 dark:text-slate-400">
+                      <span className="text-sm text-white/70">
                         {item.time}
                       </span>
                     </div>
@@ -223,8 +223,8 @@ export default function Dashboard() {
             </div>
 
             {/* Upcoming Sessions */}
-            <div className="p-6 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-6">
+            <div className="p-6 rounded-lg bg-white/10 backdrop-blur border border-white/20">
+              <h2 className="text-lg font-bold text-white mb-6">
                 Upcoming Sessions
               </h2>
               <div className="space-y-3">
@@ -235,17 +235,17 @@ export default function Dashboard() {
                 ].map((session, i) => (
                   <div
                     key={i}
-                    className="p-4 rounded-lg bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600 flex items-center justify-between hover:bg-slate-100 dark:hover:bg-slate-700 transition cursor-pointer"
+                    className="p-4 rounded-lg bg-white/5 border border-white/10 flex items-center justify-between hover:bg-white/10 transition cursor-pointer"
                   >
                     <div>
-                      <div className="font-semibold text-slate-900 dark:text-white">
+                      <div className="font-semibold text-white">
                         {session.subject}
                       </div>
-                      <div className="text-sm text-slate-600 dark:text-slate-400">
+                      <div className="text-sm text-white/60">
                         {session.time}
                       </div>
                     </div>
-                    <div className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                    <div className="text-sm font-medium text-white/80">
                       {session.duration}
                     </div>
                   </div>

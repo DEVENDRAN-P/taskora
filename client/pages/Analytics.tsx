@@ -16,14 +16,14 @@ export default function Analytics() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+    <div className="min-h-screen">
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+      <header className="sticky top-0 z-40 border-b border-white/20 bg-transparent">
         <div className="px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white lg:hidden"
+              className="p-2 rounded-lg bg-white/10 text-white lg:hidden"
             >
               {sidebarOpen ? (
                 <X className="w-5 h-5" />
@@ -32,19 +32,19 @@ export default function Analytics() {
               )}
             </button>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center shadow-lg">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-black to-gray-900 flex items-center justify-center shadow-lg">
                 <span className="text-white font-bold text-sm">T</span>
               </div>
-              <span className="font-bold text-slate-900 dark:text-white">
+              <span className="font-bold text-white">
                 Analytics
               </span>
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <button className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+            <button className="p-2 rounded-lg bg-white/10 text-white hover:bg-white/20 transition">
               <Settings className="w-5 h-5" />
             </button>
-            <button className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+            <button className="p-2 rounded-lg bg-white/10 text-white hover:bg-white/20 transition">
               <User className="w-5 h-5" />
             </button>
           </div>
@@ -54,31 +54,31 @@ export default function Analytics() {
       <div className="flex">
         {/* Sidebar */}
         {sidebarOpen && (
-          <aside className="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 space-y-6">
+          <aside className="w-64 border-r border-white/20 bg-white/5 backdrop-blur p-6 space-y-6">
             <nav className="space-y-2">
               <Link
                 to="/dashboard"
-                className="w-full px-4 py-3 rounded-lg text-slate-700 dark:text-slate-300 font-medium text-left hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-3"
+                className="w-full px-4 py-3 rounded-lg text-white/70 font-medium text-left hover:bg-white/10 transition flex items-center gap-3"
               >
                 <BarChart3 className="w-5 h-5" />
                 Dashboard
               </Link>
               <Link
                 to="/chat"
-                className="w-full px-4 py-3 rounded-lg text-slate-700 dark:text-slate-300 font-medium text-left hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-3"
+                className="w-full px-4 py-3 rounded-lg text-white/70 font-medium text-left hover:bg-white/10 transition flex items-center gap-3"
               >
                 <MessageCircle className="w-5 h-5" />
                 Chat
               </Link>
-              <button className="w-full px-4 py-3 rounded-lg bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 font-medium text-left hover:bg-blue-100 dark:hover:bg-blue-900/30 transition flex items-center gap-3">
+              <button className="w-full px-4 py-3 rounded-lg bg-black/20 text-white font-medium text-left hover:bg-black/30 transition flex items-center gap-3">
                 <TrendingUp className="w-5 h-5" />
                 Analytics
               </button>
             </nav>
-            <div className="border-t border-slate-200 dark:border-slate-800 pt-6">
+            <div className="border-t border-white/20 pt-6">
               <Link
                 to="/"
-                className="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+                className="text-sm text-white/60 hover:text-white transition"
               >
                 ← Back to Home
               </Link>
@@ -91,10 +91,10 @@ export default function Analytics() {
           <div className="max-w-7xl mx-auto space-y-8">
             {/* Header */}
             <div>
-              <h1 className="text-4xl font-bold text-slate-900 dark:text-white mb-2">
+              <h1 className="text-4xl font-bold text-white mb-2">
                 Learning Analytics
               </h1>
-              <p className="text-slate-600 dark:text-slate-400">
+              <p className="text-white/70">
                 Deep insights into your learning patterns and progress
               </p>
             </div>
@@ -105,7 +105,7 @@ export default function Analytics() {
                 {
                   label: "Total Focus Time",
                   value: "156h 42m",
-                  change: "+23% vs last month",
+                  change: "0% vs last month",
                   trend: "up",
                 },
                 {
@@ -116,28 +116,28 @@ export default function Analytics() {
                 },
                 {
                   label: "Consistency Score",
-                  value: "94%",
-                  change: "+8% from last week",
+                  value: "0%",
+                  change: "0% from last week",
                   trend: "up",
                 },
               ].map((metric, i) => (
                 <div
                   key={i}
-                  className="p-6 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
+                  className="p-6 rounded-lg bg-white/10 backdrop-blur border border-white/20 hover:border-gray-300/50 transition"
                 >
-                  <div className="text-sm text-slate-600 dark:text-slate-400 mb-2">
+                  <div className="text-sm text-white/70 mb-2">
                     {metric.label}
                   </div>
-                  <div className="text-3xl font-bold text-slate-900 dark:text-white mb-3">
+                  <div className="text-3xl font-bold text-white mb-3">
                     {metric.value}
                   </div>
                   <div className="flex items-center gap-2">
                     {metric.trend === "up" ? (
-                      <ArrowUp className="w-4 h-4 text-green-600" />
+                      <ArrowUp className="w-4 h-4 text-gray-300" />
                     ) : (
-                      <ArrowDown className="w-4 h-4 text-red-600" />
+                      <ArrowDown className="w-4 h-4 text-gray-300" />
                     )}
-                    <span className="text-xs text-green-600 dark:text-green-400">
+                    <span className="text-xs text-gray-300 font-medium">
                       {metric.change}
                     </span>
                   </div>
@@ -148,8 +148,8 @@ export default function Analytics() {
             {/* Learning Patterns */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Focus Distribution */}
-              <div className="p-6 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-6">
+              <div className="p-6 rounded-lg bg-white/10 backdrop-blur border border-white/20">
+                <h2 className="text-lg font-bold text-white mb-6">
                   Focus by Time of Day
                 </h2>
                 <div className="space-y-4">
@@ -163,16 +163,16 @@ export default function Analytics() {
                   ].map((item, i) => (
                     <div key={i}>
                       <div className="flex justify-between mb-2">
-                        <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                        <span className="text-sm font-medium text-white/80">
                           {item.time}
                         </span>
-                        <span className="text-sm text-slate-600 dark:text-slate-400">
+                        <span className="text-sm text-white/60">
                           {item.percentage}%
                         </span>
                       </div>
-                      <div className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                      <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-blue-500 rounded-full"
+                          className="h-full bg-black rounded-full"
                           style={{ width: `${item.percentage}%` }}
                         ></div>
                       </div>
@@ -182,8 +182,8 @@ export default function Analytics() {
               </div>
 
               {/* Learning Subjects */}
-              <div className="p-6 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-6">
+              <div className="p-6 rounded-lg bg-white/10 backdrop-blur border border-white/20">
+                <h2 className="text-lg font-bold text-white mb-6">
                   Time by Learning Subject
                 </h2>
                 <div className="space-y-4">
@@ -196,16 +196,16 @@ export default function Analytics() {
                   ].map((item, i) => (
                     <div key={i}>
                       <div className="flex justify-between mb-2">
-                        <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                        <span className="text-sm font-medium text-white/80">
                           {item.subject}
                         </span>
-                        <span className="text-sm text-slate-600 dark:text-slate-400">
+                        <span className="text-sm text-white/60">
                           {item.hours}h
                         </span>
                       </div>
-                      <div className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                      <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-cyan-500 rounded-full"
+                          className="h-full bg-black rounded-full"
                           style={{ width: `${(item.hours / 50) * 100}%` }}
                         ></div>
                       </div>
@@ -216,8 +216,8 @@ export default function Analytics() {
             </div>
 
             {/* Weekly Breakdown */}
-            <div className="p-6 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-6">
+            <div className="p-6 rounded-lg bg-white/10 backdrop-blur border border-white/20">
+              <h2 className="text-lg font-bold text-white mb-6">
                 Weekly Progress
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -249,21 +249,21 @@ export default function Analytics() {
                 ].map((w, i) => (
                   <div
                     key={i}
-                    className="p-4 rounded-lg bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600"
+                    className="p-4 rounded-lg bg-white/5 border border-white/10"
                   >
-                    <div className="text-sm font-semibold text-slate-900 dark:text-white mb-3">
+                    <div className="text-sm font-semibold text-white mb-3">
                       {w.week}
                     </div>
                     <div className="space-y-2 text-sm">
                       <div>
-                        <div className="text-xs text-slate-600 dark:text-slate-400 mb-1">
+                        <div className="text-xs text-white/60 mb-1">
                           Target: {w.target}h
                         </div>
-                        <div className="text-xs text-slate-600 dark:text-slate-400">
+                        <div className="text-xs text-white/60">
                           Actual: {w.actual}h
                         </div>
                       </div>
-                      <div className="text-xs text-blue-600 dark:text-blue-400 font-medium">
+                      <div className="text-xs text-gray-300 font-medium">
                         {w.sessions} sessions
                       </div>
                     </div>
