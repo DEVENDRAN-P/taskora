@@ -19,6 +19,14 @@ import DistractionAnalyzer from "./pages/DistractionAnalyzer";
 import SmartAppNudges from "./pages/SmartAppNudges";
 import RecallAssistant from "./pages/RecallAssistant";
 import WeeklyReflection from "./pages/WeeklyReflection";
+import Features from "./pages/Features";
+import Pricing from "./pages/Pricing";
+import Company from "./pages/Company";
+import About from "./pages/About";
+import Blog from "./pages/Blog";
+import Legal from "./pages/Legal";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 import { AuthProvider, useAuth } from "./lib/auth-context";
 
 const queryClient = new QueryClient();
@@ -47,6 +55,14 @@ const AppRoutes = () => (
     {/* Public Routes */}
     <Route path="/" element={<Index />} />
     <Route path="/login" element={<Login />} />
+    <Route path="/features" element={<Features />} />
+    <Route path="/pricing" element={<Pricing />} />
+    <Route path="/company" element={<Company />} />
+    <Route path="/about" element={<About />} />
+    <Route path="/blog" element={<Blog />} />
+    <Route path="/legal" element={<Legal />} />
+    <Route path="/privacy" element={<Privacy />} />
+    <Route path="/terms" element={<Terms />} />
 
     {/* Protected Routes */}
     <Route
